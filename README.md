@@ -9,6 +9,7 @@ Walk trought of a microblogging platform called Chirper built with modern Larave
 - [ ] dockerize Laravel Chirper
 - [ ] use MySQL for Laravel Chirper's DB
 - [ ] Gravatar for Chirper profiles
+- [ ] Vue with TypeScript!
 - [ ] Chirps: show absolute time (created_at) when hovering over chirp time indicator
 - [ ] Chirps: only allow edit within first... minute 
 
