@@ -64,7 +64,22 @@ class ChirpController extends Controller
      */
     public function update(Request $request, Chirp $chirp)
     {
-        //
+        $this->authorize('update', $chirp);
+
+        $validated = $request->validate([
+            'message' => 'required|string|max:255',
+        ]);
+
+        // ensure that chirp was made within last 5 minutes
+        if ($chirp->created_at->diffInMinutes() > 5) {
+            // TODO: indicate unauthorized
+            return redirect(route('chirps.index'));
+        }
+
+        // actually do update
+        $chirp->update($validated);
+
+        return redirect(route('chirps.index'));
     }
 
     /**
